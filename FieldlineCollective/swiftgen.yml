@@ -1,0 +1,7 @@
+## Fonts ##
+ fonts:
+  inputs:
+     - FieldlineCollective/Fonts
+  outputs:
+     - templateName: swift5
+       output: FieldlineCollective/Generated/Fonts+Generated.swift
