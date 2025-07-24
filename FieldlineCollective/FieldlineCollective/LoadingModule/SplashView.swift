@@ -33,13 +33,12 @@ struct SplashView: View {
                 }
                 .padding(.horizontal)
             }
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    withAnimation {
-                        isLoading = false
-                    }
+            .onReceive(NotificationCenter.default.publisher(for: .splashTransition)) { _ in
+                withAnimation {
+                    self.isLoading = false
                 }
             }
+
         } else if !hasSeenTutorial {
             OnboardingView()
                 .environmentObject(animalService)
